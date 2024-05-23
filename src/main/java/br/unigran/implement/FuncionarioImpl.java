@@ -3,7 +3,7 @@ package br.unigran.implement;
 import br.unigran.dao.FuncionarioDao;
 import javax.persistence.NoResultException;
 import br.unigran.entidades.Funcionario;
-import br.unigran.persistence.Dao;
+import br.unigran.persistencia.Dao;
 import javax.persistence.TypedQuery;
 import java.util.List;
 

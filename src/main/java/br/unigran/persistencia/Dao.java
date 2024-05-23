@@ -1,4 +1,4 @@
-package br.unigran.persistence;
+package br.unigran.persistencia;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

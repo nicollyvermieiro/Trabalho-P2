@@ -8,7 +8,7 @@ package br.unigran.entidades;
  *
  * @author User
  */
-public class Endereço {
+public class Endereco {
     private Integer id;
     private String logadouro;
     private String cep;

@@ -12,7 +12,7 @@ public class NotaFiscal {
     private Integer id;
     private String cnpj;
     private String nomeEmpresa;
-    private Endereço endereço;
+    private Endereco endereço;
     private Saida saida;
     private Entrada entrada;
 
@@ -40,11 +40,11 @@ public class NotaFiscal {
         this.nomeEmpresa = nomeEmpresa;
     }
 
-    public Endereço getEndereço() {
+    public Endereco getEndereço() {
         return endereço;
     }
 
-    public void setEndereço(Endereço endereço) {
+    public void setEndereço(Endereco endereço) {
         this.endereço = endereço;
     }
 

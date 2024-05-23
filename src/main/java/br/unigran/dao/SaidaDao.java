@@ -1,6 +1,6 @@
 package br.unigran.dao;
 
-import br.unigran.persistence.InterfaceDao;
+import br.unigran.persistencia.InterfaceDao;
 import br.unigran.entidades.Saida;
 
 import java.util.List;

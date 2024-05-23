@@ -1,4 +1,4 @@
-package br.unigran.persistence;
+package br.unigran.persistencia;
 
 import javax.persistence.NoResultException;
 import java.util.List;

@@ -9,11 +9,14 @@ public class Funcionario {
     private String nomeFuncionario;
     private String cpf;
     private String dataNasc;
+    private String sexo;
     private String telefone;
     private String email;
     private String dataContratacao;
     private Cargo cargo;
-    private Endereço endereço;
+    private Float salario;
+    private String funcao;
+    private Endereco endereco;
     private Login login;
 
     public Integer getId() {
@@ -48,6 +51,14 @@ public class Funcionario {
         this.dataNasc = dataNasc;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
     public String getTelefone() {
         return telefone;
     }
@@ -72,6 +83,16 @@ public class Funcionario {
         this.dataContratacao = dataContratacao;
     }
 
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
+    }
+    
+    
+
     public Cargo getCargo() {
         return cargo;
     }
@@ -80,12 +101,21 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
-    public Endereço getEndereço() {
-        return endereço;
+    public float getSalario() {
+        return salario;
     }
 
-    public void setEndereço(Endereço endereço) {
-        this.endereço = endereço;
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+    
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public Login getLogin() {
@@ -114,6 +144,7 @@ public class Funcionario {
     public void buscar(){
 
     }
+
     
     
 }

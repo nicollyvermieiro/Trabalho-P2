@@ -4,7 +4,7 @@ import br.unigran.dao.ProdutoDao;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import br.unigran.entidades.Produto;
-import br.unigran.persistence.Dao;
+import br.unigran.persistencia.Dao;
 import java.util.List;
 
 public class ProdutoImpl implements ProdutoDao{

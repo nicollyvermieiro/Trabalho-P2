@@ -4,7 +4,7 @@ import br.unigran.dao.SaidaDao;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import br.unigran.entidades.Saida;
-import br.unigran.persistence.Dao;
+import br.unigran.persistencia.Dao;
 import java.util.List;
 
 public class SaidaImpl implements SaidaDao {

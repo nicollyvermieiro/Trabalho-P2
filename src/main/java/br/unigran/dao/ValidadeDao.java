@@ -2,7 +2,7 @@ package br.unigran.dao;
 
 
 import br.unigran.entidades.Validade;
-import br.unigran.persistence.InterfaceDao;
+import br.unigran.persistencia.InterfaceDao;
 
 import java.util.List;
 

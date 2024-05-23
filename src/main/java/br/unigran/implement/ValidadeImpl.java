@@ -2,7 +2,7 @@ package br.unigran.implement;
 
 import br.unigran.dao.ValidadeDao;
 import br.unigran.entidades.Validade;
-import br.unigran.persistence.Dao;
+import br.unigran.persistencia.Dao;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
