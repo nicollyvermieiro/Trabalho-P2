@@ -4,48 +4,51 @@
  */
 package br.unigran.entidades;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
- * @author User
+ * @author valds
  */
+@Entity
 public class Estoque {
-    private Integer id;
-    private Produto produtoEstoque;
-    private Entrada entradaEstoque;
-    private Saida saidaEstoque;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long estoqueAtual;
+    private Long estoqueAnterior;
 
-    public Integer getId() {
-        return id;
+    @OneToMany(mappedBy = "estoque")
+    private Set<Funcionario> funcionarios = new HashSet<>();
+
+    @OneToMany(mappedBy = "estoque")
+    private Set<Produto> produtos = new HashSet<>();
+
+    @OneToMany(mappedBy = "estoque")
+    private Set<Entrada> entradas = new HashSet<>();
+
+    @OneToMany(mappedBy = "estoque")
+    private Set<Saida> saidas = new HashSet<>();
+
+    public void setEstoqueAtual(Long estoqueAtual) {
+        this.estoqueAtual = estoqueAtual;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Long getEstoqueAtual() {
+        return estoqueAtual;
     }
 
-    public Produto getProdutoEstoque() {
-        return produtoEstoque;
+    public Long getEstoqueAnterior() {
+        return estoqueAnterior;
     }
 
-    public void setProdutoEstoque(Produto produtoEstoque) {
-        this.produtoEstoque = produtoEstoque;
+    public void setEstoqueAnterior(Long estoqueAnterior) {
+        this.estoqueAnterior = estoqueAnterior;
     }
 
-    public Entrada getEntradaEstoque() {
-        return entradaEstoque;
-    }
 
-    public void setEntradaEstoque(Entrada entradaEstoque) {
-        this.entradaEstoque = entradaEstoque;
-    }
-
-    public Saida getSaidaEstoque() {
-        return saidaEstoque;
-    }
-
-    public void setSaidaEstoque(Saida saidaEstoque) {
-        this.saidaEstoque = saidaEstoque;
-    }
-    
     public void acessar(){
 
     }
@@ -61,5 +64,4 @@ public class Estoque {
     public void listar(){
 
     }
-    
 }

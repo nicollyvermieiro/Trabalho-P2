@@ -1,38 +1,47 @@
 package br.unigran.entidades;
 
-/**
- *
- * @author User
- */
-public class Funcionario {
-    private Integer id;
-    private String nomeFuncionario;
+import java.io.Serializable;
+import javax.persistence.*;
+
+@Entity
+public class Funcionario implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(length = 50)
+    private String nome;
+    @Column(length = 20)
     private String cpf;
     private String dataNasc;
+    private Endereco endereco;
     private String sexo;
     private String telefone;
+    @Column(unique = true)
     private String email;
-    private String dataContratacao;
-    private Cargo cargo;
+    private String dataAdmissao;
     private Float salario;
-    private String funcao;
-    private Endereco endereco;
-    private Login login;
+    private Cargo cargo;
+    private String login;
+    private String senha;
 
-    public Integer getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name = "estoque_id")
+    private Estoque estoque;
+
+    public Long getId(){
+        return this.id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNomeFuncionario() {
-        return nomeFuncionario;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeFuncionario(String nomeFuncionario) {
-        this.nomeFuncionario = nomeFuncionario;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {
@@ -49,6 +58,14 @@ public class Funcionario {
 
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public String getSexo() {
@@ -75,23 +92,21 @@ public class Funcionario {
         this.email = email;
     }
 
-    public String getDataContratacao() {
-        return dataContratacao;
+    public String getDataAdmissao() {
+        return dataAdmissao;
     }
 
-    public void setDataContratacao(String dataContratacao) {
-        this.dataContratacao = dataContratacao;
+    public void setDataAdmissao(String dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
     }
 
-    public String getFuncao() {
-        return funcao;
+    public Float getSalario() {
+        return salario;
     }
 
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
+    public void setSalario(Float salario) {
+        this.salario = salario;
     }
-    
-    
 
     public Cargo getCargo() {
         return cargo;
@@ -101,32 +116,22 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
-    public float getSalario() {
-        return salario;
-    }
-
-    public void setSalario(float salario) {
-        this.salario = salario;
-    }
-    
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
-    public Login getLogin() {
+    public String getLogin() {
         return login;
     }
 
-    public void setLogin(Login login) {
+    public void setLogin(String login) {
         this.login = login;
     }
-    
-     public void cadastrar(){
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    public void cadastrar(){
 
     }
     public void alterar(){
@@ -144,7 +149,4 @@ public class Funcionario {
     public void buscar(){
 
     }
-
-    
-    
 }

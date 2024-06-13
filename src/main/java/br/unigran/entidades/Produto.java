@@ -1,36 +1,59 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.unigran.entidades;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
-/**
- *
- * @author User
- */
+@Entity
 public class Produto {
-    private Integer id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codProd;
+    @Column(length = 50)
     private String marca;
+    @Column(length = 50)
     private String categoria;
-    private Integer quantidadeRec;
-    private float precoProd;
-    private float precoVenda;
+    @Column(length = 50)
     private String fornecedor;
-    private Integer quantidadeMin;
-    private CodBarras codbarras;
-    private Validade validade;
-    private Entrada entrada;
-    private Saida saida;
+    @Column(length = 50)
+    private String validadeProd;
+    private Integer qtdeRecebida;
+    private Integer qtdeMinEstoque;
+    private Double valorProd;
+    private Double valorVenda;
+
+    @ManyToOne
+    @JoinColumn(name = "estoque_id")
     private Estoque estoque;
 
-    public Integer getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name = "validade_id")
+    private Validade validade;
+
+    public Produto(Long codProd, String marca, String categoria, String fornecedor, String validadeProd, Integer qtdeRecebida, Integer qtdeMinEstoque, Double valorProd, Double valorVenda) {
+        this.codProd = codProd;
+        this.marca = marca;
+        this.categoria = categoria;
+        this.fornecedor = fornecedor;
+        this.validadeProd = validadeProd;
+        this.qtdeRecebida = qtdeRecebida;
+        this.qtdeMinEstoque = qtdeMinEstoque;
+        this.valorProd = valorProd;
+        this.valorVenda = valorVenda;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Produto() {
+
+    }
+
+
+
+    public Long getCodProd() {
+        return codProd;
+    }
+
+    public void setCodProd(Long codProd) {
+        this.codProd = codProd;
     }
 
     public String getMarca() {
@@ -49,30 +72,6 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public Integer getQuantidadeRec() {
-        return quantidadeRec;
-    }
-
-    public void setQuantidadeRec(Integer quantidadeRec) {
-        this.quantidadeRec = quantidadeRec;
-    }
-
-    public float getPrecoProd() {
-        return precoProd;
-    }
-
-    public void setPrecoProd(float precoProd) {
-        this.precoProd = precoProd;
-    }
-
-    public float getPrecoVenda() {
-        return precoVenda;
-    }
-
-    public void setPrecoVenda(float precoVenda) {
-        this.precoVenda = precoVenda;
-    }
-
     public String getFornecedor() {
         return fornecedor;
     }
@@ -81,55 +80,47 @@ public class Produto {
         this.fornecedor = fornecedor;
     }
 
-    public Integer getQuantidadeMin() {
-        return quantidadeMin;
+    public String getValidadeProd() {
+        return validadeProd;
     }
 
-    public void setQuantidadeMin(Integer quantidadeMin) {
-        this.quantidadeMin = quantidadeMin;
+    public void setValidadeProd(String validadeProd) {
+        this.validadeProd = validadeProd;
     }
 
-    public CodBarras getCodbarras() {
-        return codbarras;
+    public Integer getQtdeRecebida() {
+        return qtdeRecebida;
     }
 
-    public void setCodbarras(CodBarras codbarras) {
-        this.codbarras = codbarras;
+    public void setQtdeRecebida(Integer qtdeRecebida) {
+        this.qtdeRecebida = qtdeRecebida;
     }
 
-    public Validade getValidade() {
-        return validade;
+    public Integer getQtdeMinEstoque() {
+        return qtdeMinEstoque;
     }
 
-    public void setValidade(Validade validade) {
-        this.validade = validade;
+    public void setQtdeMinEstoque(Integer qtdeMinEstoque) {
+        this.qtdeMinEstoque = qtdeMinEstoque;
     }
 
-    public Entrada getEntrada() {
-        return entrada;
+    public Double getValorProd() {
+        return valorProd;
     }
 
-    public void setEntrada(Entrada entrada) {
-        this.entrada = entrada;
+    public void setValorProd(Double valorProd) {
+        this.valorProd = valorProd;
     }
 
-    public Saida getSaida() {
-        return saida;
+    public Double getValorVenda() {
+        return valorVenda;
     }
 
-    public void setSaida(Saida saida) {
-        this.saida = saida;
+    public void setValorVenda(Double valorVenda) {
+        this.valorVenda = valorVenda;
     }
 
-    public Estoque getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
-    }
-    
-     public void cadastrar(){
+    public void cadastrar(){
 
     }
 

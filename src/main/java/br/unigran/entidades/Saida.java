@@ -4,33 +4,35 @@
  */
 package br.unigran.entidades;
 
-/**
- *
- * @author User
- */
-public class Saida {
-    private Integer id;
-    private String dtSaida;
-    private String motivo;
-    private Estoque estoque;
-    private CodBarras codBarras;
-    private NotaFiscal notaF;
-    private Registro registro;
+import javax.persistence.*;
 
-    public Integer getId() {
+@Entity
+public class Saida {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String motivo;
+    private String dtSaida;
+
+    @ManyToOne
+    @JoinColumn(name = "estoque_id")
+    private Estoque estoque;
+
+    public Saida(String motivoSaida, String dataSaida) {
+        this.motivo = motivoSaida;
+        this.dtSaida = dataSaida;
+    }
+
+    public Saida() {
+
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getDtSaida() {
-        return dtSaida;
-    }
-
-    public void setDtSaida(String dtSaida) {
-        this.dtSaida = dtSaida;
     }
 
     public String getMotivo() {
@@ -41,39 +43,15 @@ public class Saida {
         this.motivo = motivo;
     }
 
-    public Estoque getEstoque() {
-        return estoque;
+    public String getDtSaida() {
+        return dtSaida;
     }
 
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
+    public void setDtSaida(String dtSaida) {
+        this.dtSaida = dtSaida;
     }
 
-    public CodBarras getCodBarras() {
-        return codBarras;
-    }
-
-    public void setCodBarras(CodBarras codBarras) {
-        this.codBarras = codBarras;
-    }
-
-    public NotaFiscal getNotaF() {
-        return notaF;
-    }
-
-    public void setNotaF(NotaFiscal notaF) {
-        this.notaF = notaF;
-    }
-
-    public Registro getRegistro() {
-        return registro;
-    }
-
-    public void setRegistro(Registro registro) {
-        this.registro = registro;
-    }
-    
-     public void Login(){
+    public void Login(){
 
     }
 
@@ -84,5 +62,4 @@ public class Saida {
     public void alterar(){
 
     }
-    
 }
